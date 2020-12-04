@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -60,14 +61,14 @@ public class ROT13Test {
         String A2 = "To get to the other side!";
 
         // When
-        String actual = cipher.encrypt(Q1);
+        String actual = cipher.encryptNDecrypt(Q1);
         System.out.println(Q1);
         System.out.println(A1);
         // Then
         assertTrue(actual.equals(A1));
 
         // When
-        String actual2 = cipher.decrypt(Q2);
+        String actual2 = cipher.encryptNDecrypt(Q2);
         System.out.println(Q2);
         System.out.println(A2);
         // Then
@@ -87,5 +88,19 @@ public class ROT13Test {
         // Then
         assertTrue(actual.equals(Q1));
     }
+    @Test
+    public void caesarCipherEncrpytTest(){
+        //Given
+        CaesarCipher cipherTest = new CaesarCipher();
+        String beforeEncrpyt = "Gelp Le";
+        String expected = "Ifmq Nf";
+
+        //When
+        String actual = cipherTest.encrpyt(beforeEncrpyt, 1);
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
 
 }
